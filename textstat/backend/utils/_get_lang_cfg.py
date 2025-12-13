@@ -21,9 +21,12 @@ def get_lang_cfg(lang: str, key: str) -> float:
     """
     lang_root = get_lang_root(lang)
     default_config = LANG_CONFIGS["en"]
-    config = LANG_CONFIGS.get(lang_root)
-    if config and key in config:
+    config = LANG_CONFIGS.get(lang_root, {})
+
+    if key in config:
         return config[key]
+
     if key in default_config:
         return default_config[key]
+
     raise ValueError(f"Unknown config key {key}")
