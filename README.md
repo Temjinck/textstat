@@ -37,6 +37,7 @@
 >>> textstat.coleman_liau_index(test_data)
 >>> textstat.automated_readability_index(test_data)
 >>> textstat.dale_chall_readability_score(test_data)
+>>> textstat.new_dale_chall_readability_score(test_data)
 >>> textstat.difficult_words(test_data)
 >>> textstat.linsear_write_formula(test_data)
 >>> textstat.gunning_fog(test_data)
@@ -259,6 +260,36 @@ the grade level using the New Dale-Chall Formula.
 > Further reading on
 [Wikipedia](https://en.wikipedia.org/wiki/Dale%E2%80%93Chall_readability_formula)
 
+#### New Dale-Chall Readability Score
+
+```python
+textstat.new_dale_chall_readability_score(text)
+```
+
+Returns the grade level using the New Dale-Chall Readability Formula.
+
+Unlike the original Dale-Chall formula, the New Dale-Chall formula does not
+apply an adjustment based on the percentage of difficult words. Instead, it
+uses a simplified calculation:
+
+Score = 64 - (0.95 * PDW) - (0.69 * ASL)
+
+Where:
+- PDW = Percentage of Difficult Words
+- ASL = Average Sentence Length
+
+| Score       |  Understood by                                |
+|-------------|-----------------------------------------------|
+|4.9 or lower | average 4th-grade student or lower            |
+|  5.0–5.9    | average 5th or 6th-grade student              |
+|  6.0–6.9    | average 7th or 8th-grade student              |
+|  7.0–7.9    | average 9th or 10th-grade student             |
+|  8.0–8.9    | average 11th or 12th-grade student            |
+|  9.0–9.9    | average 13th to 15th-grade (college) student  |
+
+> Further reading on
+[readabilityformulas.com](https://readabilityformulas.com/learn-about-the-new-dale-chall-readability-formula/)
+
 #### Readability Consensus based upon all the above tests
 
 ```python
@@ -443,6 +474,15 @@ textstat.sentence_count(text)
 
 Returns the number of sentences present in the given text.
 
+**Note:** This function requires NLTK and the punkt tokenizer data to be installed:
+
+```bash
+pip install nltk
+python -c "import nltk; nltk.download('punkt_tab')"
+```
+
+If NLTK punkt_tab is not installed, calling `sentence_count` will raise a `LookupError`.
+
 #### Character Count
 
 ```python
@@ -499,6 +539,10 @@ systems Python installation.
 $ git clone https://github.com/<yourname>/textstat.git  # Clone the repo from your fork
 $ cd textstat
 $ pip install -r requirements.txt  # Install all dependencies
+
+# Install NLTK and download punkt_tab tokenizer data (required for sentence_count)
+$ pip install nltk
+$ python -c "import nltk; nltk.download('punkt_tab')"
 
 $ # Make changes
 

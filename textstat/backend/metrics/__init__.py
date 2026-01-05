@@ -4,6 +4,7 @@ from ._coleman_liau_index import coleman_liau_index
 from ._crawford import crawford
 from ._dale_chall_readability_score import dale_chall_readability_score
 from ._dale_chall_readability_score_v2 import dale_chall_readability_score_v2
+from ._new_dale_chall_readability_score import new_dale_chall_readability_score
 from ._fernandez_huerta import fernandez_huerta
 from ._flesch_kincaid_grade import flesch_kincaid_grade
 from ._flesch_reading_ease import flesch_reading_ease
@@ -34,6 +35,7 @@ __all__ = [
     "crawford",
     "dale_chall_readability_score",
     "dale_chall_readability_score_v2",
+    "new_dale_chall_readability_score",
     "fernandez_huerta",
     "flesch_kincaid_grade",
     "flesch_reading_ease",

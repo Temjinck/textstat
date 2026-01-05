@@ -978,6 +978,40 @@ class textstatistics:
             metrics.dale_chall_readability_score_v2(text, self.__lang)
         )
 
+    def new_dale_chall_readability_score(self, text: str) -> float:
+        """Calculate New Dale-Chall Readability Score.
+
+        Unlike the original Dale-Chall formula, the New Dale-Chall formula does not
+        apply an adjustment based on the percentage of difficult words. Instead, it
+        uses a simplified calculation.
+
+        Parameters
+        ----------
+        text : str
+            A text string.
+
+        Returns
+        -------
+        float
+            The New Dale-Chall Readability Score for `text`.
+
+        Notes
+        -----
+        The New Dale-Chall Readability Score is calculated as:
+
+        Score = 64 - (0.95 * PDW) - (0.69 * ASL)
+
+        Where:
+        - PDW = Percentage of Difficult Words
+        - ASL = Average Sentence Length
+
+        Reference:
+        https://readabilityformulas.com/learn-about-the-new-dale-chall-readability-formula/
+        """
+        return self._legacy_round(
+            metrics.new_dale_chall_readability_score(text, self.__lang)
+        )
+
     def text_standard(self, text: str, float_output: bool = False) -> float | str:
         """Calculate the Text Standard for `text`. If `float_output` is True,
         calculates the numerical value. Otherwise, returns a string of the form

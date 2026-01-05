@@ -31,6 +31,16 @@ jobs:
           python -m pip install pipenv
           pipenv install --dev
 
+      - name: Install nltk
+        run: pip install nltk
+
+      - name: Download NLTK punkt_tab
+        run: |
+          python - <<'PY'
+          import nltk
+          nltk.download('punkt_tab', quiet=True)
+          PY
+
       - name: Check code spelling
         run: |
           pipenv run codespell -L paket,nd --skip=./textstat/resources/**/easy_words.txt,./build/*,./textstat.egg-info/*,./.git/*,./tests/* --exclude-file=.codespellignorelines

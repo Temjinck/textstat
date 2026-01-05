@@ -1,14 +1,11 @@
 from __future__ import annotations
 
-import re
-
 from ..utils._typed_cache import typed_cache
-from ._count_words import count_words
 
 
 @typed_cache
 def count_sentences(text: str) -> int:
-    """Count the sentences of the text.
+    """Count sentences using NLTK Punkt only.
 
     Parameters
     ----------
@@ -20,13 +17,18 @@ def count_sentences(text: str) -> int:
     int
         Number of sentences in the text. Will be 0 for empty string, otherwise >= 1.
 
+    Requires:
+      pip install nltk
+      python -c "import nltk; nltk.download('punkt')"
+
+    This function will raise a LookupError from NLTK if punkt is not installed.
     """
-    if len(text) == 0:
+    if not text or not text.strip():
         return 0
 
-    ignore_count = 0
-    sentences = re.findall(r"\b[^.!?]+[.!?]*", text, re.UNICODE)
-    for sentence in sentences:
-        if count_words(sentence) <= 2:
-            ignore_count += 1
-    return max(1, len(sentences) - ignore_count)
+    from nltk.tokenize import sent_tokenize  # will raise LookupError if punkt missing
+
+    sents = sent_tokenize(text)
+    # filter out empty/whitespace-only segments
+    count = len([s for s in sents if s and s.strip()])
+    return max(1, count)
