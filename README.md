@@ -280,12 +280,16 @@ Where:
 
 | Score       |  Understood by                                |
 |-------------|-----------------------------------------------|
-|4.9 or lower | average 4th-grade student or lower            |
-|  5.0–5.9    | average 5th or 6th-grade student              |
-|  6.0–6.9    | average 7th or 8th-grade student              |
-|  7.0–7.9    | average 9th or 10th-grade student             |
-|  8.0–8.9    | average 11th or 12th-grade student            |
-|  9.0–9.9    | average 13th to 15th-grade (college) student  |
+|  58+        | average 1st grade student                     |
+|  57 - 54    | average 2nd grade student                     |
+|  53 - 50    | average 3rd grade student                     |
+|  49 - 45    | average 4th-grade student                     |
+|  44 - 40    | average 5th to 6th-grade student              |
+|  39 - 34    | average 7th to 8th-grade student              |
+|  33 - 28    | average 9th to 10th-grade student             |
+|  27 - 22    | average 11th to 12th-grade student            |
+|  21 - 16    | Colleage Student                              |
+|  15 -       | College Gradude                               |
 
 > Further reading on
 [readabilityformulas.com](https://readabilityformulas.com/learn-about-the-new-dale-chall-readability-formula/)
