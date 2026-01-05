@@ -39,10 +39,10 @@ def dale_chall_readability_score(text: str, lang: str) -> float:
         (0.1579*%\ difficult\ words)+(0.0496*avg\ words\ per\ sentence)
 
     If the percentage of difficult words is > 5, 3.6365 is added to the
-    score.
+        score.
     """
     word_count = count_words(text)
-    hard_count = count_difficult_words(text, lang, syllable_threshold=0)
+    hard_count = count_difficult_words(text, lang, syllable_threshold=2)
 
     try:
         per_difficult_words = 100 * hard_count / word_count

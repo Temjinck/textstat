@@ -15,7 +15,7 @@ def new_dale_chall_readability_score(text: str, lang: str) -> float:
     text : str
         A text string.
     lang : str
-        The language of the text.
+        The language of text.
 
     Returns
     -------
@@ -32,14 +32,14 @@ def new_dale_chall_readability_score(text: str, lang: str) -> float:
     - PDW = Percentage of Difficult Words
     - ASL = Average Sentence Length
 
-    Unlike the old Dale-Chall formula, there is no adjustment based on
-    the percentage of difficult words.
+    Unlike old Dale-Chall formula, there is no adjustment based on
+    percentage of difficult words.
 
     Reference:
     https://readabilityformulas.com/learn-about-the-new-dale-chall-readability-formula/
     """
     word_count = count_words(text)
-    hard_count = count_difficult_words(text, lang, syllable_threshold=0)
+    hard_count = count_difficult_words(text, lang, syllable_threshold=2)
     sent_count = count_sentences(text)
 
     try:
