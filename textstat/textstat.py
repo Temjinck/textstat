@@ -604,6 +604,37 @@ class textstatistics:
         """
         return counts.count_polysyllable_words(text, self.__lang)
 
+    def powers_sumner_kearl(self, text: str) -> float:
+        r"""Calculate the Powers-Sumner-Kearl readability score.
+
+        Parameters
+        ----------
+        text : str
+            A text string.
+
+        Returns
+        -------
+        float
+            The Powers-Sumner-Kearl readability score for `text`.
+
+        Notes
+        -----
+        The Powers-Sumner-Kearl readability score is calculated as:
+
+        .. math::
+
+            (0.0778*ASL)+(4.55*nsy/nw)-2.2029
+
+        Where:
+        - ASL = Average Sentence Length (words per sentence)
+        - nsy = total syllables
+        - nw = total words
+
+        Lower scores indicate easier-to-read text, while higher scores indicate
+        more difficult text.
+        """
+        return self._legacy_round(metrics.powers_sumner_kearl(text, self.__lang))
+
     def smog_index(self, text: str) -> float:
         r"""Calculate the SMOG index.
 

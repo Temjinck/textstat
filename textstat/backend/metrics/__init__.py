@@ -16,6 +16,7 @@ from ._linsear_write_formula import linsear_write_formula
 from ._lix import lix
 from ._mcalpine_eflaw import mcalpine_eflaw
 from ._osman import osman
+from ._powers_sumner_kearl import powers_sumner_kearl
 from ._reading_time import reading_time
 from ._rix import rix
 from ._sentences_per_word import sentences_per_word
@@ -47,6 +48,7 @@ __all__ = [
     "lix",
     "mcalpine_eflaw",
     "osman",
+    "powers_sumner_kearl",
     "reading_time",
     "rix",
     "sentences_per_word",

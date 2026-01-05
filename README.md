@@ -42,6 +42,7 @@
 >>> textstat.linsear_write_formula(test_data)
 >>> textstat.gunning_fog(test_data)
 >>> textstat.text_standard(test_data)
+>>> textstat.powers_sumner_kearl(test_data)
 >>> textstat.fernandez_huerta(test_data)
 >>> textstat.szigriszt_pazos(test_data)
 >>> textstat.gutierrez_polini(test_data)
@@ -293,6 +294,29 @@ Where:
 
 > Further reading on
 [readabilityformulas.com](https://readabilityformulas.com/learn-about-the-new-dale-chall-readability-formula/)
+
+#### Powers-Sumner-Kearl Readability Score
+
+```python
+textstat.powers_sumner_kearl(text)
+```
+
+Returns the Powers-Sumner-Kearl readability score.
+
+The Powers-Sumner-Kearl formula is designed to measure the readability of text
+for elementary school students. It considers both sentence length and syllable
+complexity.
+
+Formula:
+PSK = (0.0778 * ASL) + (4.55 * nsy / nw) - 2.2029
+
+Where:
+- ASL = Average Sentence Length (words per sentence)
+- nsy = total syllables
+- nw = total words
+
+Lower scores indicate easier-to-read text, while higher scores indicate more
+difficult text.
 
 #### Readability Consensus based upon all the above tests
 
