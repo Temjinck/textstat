@@ -35,11 +35,15 @@ def new_dale_chall_readability_score(text: str, lang: str) -> float:
     Unlike old Dale-Chall formula, there is no adjustment based on
     percentage of difficult words.
 
+    This implementation counts only unique difficult words for a more
+    accurate readability assessment, as repeated difficult words should
+    not disproportionately affect the score.
+
     Reference:
     https://readabilityformulas.com/learn-about-the-new-dale-chall-readability-formula/
     """
     word_count = count_words(text)
-    hard_count = count_difficult_words(text, lang, syllable_threshold=2)
+    hard_count = count_difficult_words(text, lang, syllable_threshold=2, unique=True)
     sent_count = count_sentences(text)
 
     try:

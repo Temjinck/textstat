@@ -25,7 +25,7 @@ def gunning_fog(text: str, lang: str) -> float:
         The Gunning Fog Index for `text`.
     """
     syllable_threshold = int(get_lang_cfg(lang, "syllable_threshold"))
-    diff_words = count_difficult_words(text, lang, syllable_threshold)
+    diff_words = count_difficult_words(text, lang, syllable_threshold, unique=True)
     tot_words = count_words(text)
 
     try:

@@ -25,7 +25,7 @@ def spache_readability(text: str, lang: str) -> float:
     total_no_of_words = count_words(text)
     asl = words_per_sentence(text)
     try:
-        pdw = 100 * count_difficult_words(text, lang) / total_no_of_words
+        pdw = 100 * count_difficult_words(text, lang, unique=True) / total_no_of_words
     except ZeroDivisionError:
         return 0.0
     return (0.141 * asl) + (0.086 * pdw) + 0.839

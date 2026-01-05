@@ -21,11 +21,17 @@ def dale_chall_readability_score_v2(text: str, lang: str) -> float:
     -------
     float
         The New Dale Chall Readability Score for `text`
+
+    Notes
+    -----
+    This implementation counts only unique difficult words for a more
+    accurate readability assessment, as repeated difficult words should
+    not disproportionately affect the score.
     """
     total_no_of_words = count_words(text)
     try:
         asl = words_per_sentence(text)
-        pdw = 100 * count_difficult_words(text, lang) / total_no_of_words
+        pdw = 100 * count_difficult_words(text, lang, unique=True) / total_no_of_words
     except ZeroDivisionError:
         return 0.0
     raw_score = 0.1579 * (pdw) + 0.0496 * asl
