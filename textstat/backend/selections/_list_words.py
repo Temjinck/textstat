@@ -15,6 +15,7 @@ def list_words(
     lowercase: bool = False,
     split_contractions: bool = False,
     split_hyphens: bool = False,
+    split_em_dashes: bool = True,
 ) -> list[str]:
     """Get a list of all words in the text. If specified by args, words can be
     lowercased and punctuation removed. By default apostrophes are not removed with
@@ -23,6 +24,8 @@ def list_words(
     If `rm_punctuation`, `rm_apostrophe`, and `split_contractions` are all set to
     True, `split_contractions` is ignored. If `split_hyphens` is set to True,
     hyphenated words are counted as multiple words (regardless of `rm_punctuation`).
+    If `split_em_dashes` is set to True (default), em dashes (—) are split as
+    separate words, as they typically separate unrelated words.
 
     Parameters
     ----------
@@ -38,6 +41,8 @@ def list_words(
         Split contractions. The default is False.
     split_hyphens : bool, optional
         Split hyphens. The default is False.
+    split_em_dashes : bool, optional
+        Split em dashes (—). The default is True.
 
     Returns
     -------
@@ -45,6 +50,9 @@ def list_words(
         A list of the words.
 
     """
+    if split_em_dashes:
+        # Replace em dashes (—) with spaces to split words
+        text = re.sub(r"—", " ", text)
     if split_hyphens:
         text = re.sub(r"-", " ", text)
     if rm_punctuation:
