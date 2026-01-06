@@ -4,6 +4,7 @@ from ._get_lang_cfg import get_lang_cfg
 from ._get_lang_easy_words import get_lang_easy_words
 from ._get_lang_root import get_lang_root
 from ._get_pyphen import get_pyphen
+from ._get_spache_easy_words import get_spache_easy_words
 from ._typed_cache import typed_cache
 from . import constants
 
@@ -14,6 +15,7 @@ __all__ = [
     "get_lang_easy_words",
     "get_lang_root",
     "get_pyphen",
+    "get_spache_easy_words",
     "typed_cache",
     "constants",
 ]

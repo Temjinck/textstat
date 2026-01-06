@@ -12,6 +12,7 @@ from ._count_monosyllable_words import count_monosyllable_words
 from ._count_polysyllable_words import count_polysyllable_words
 from ._count_sentences import count_sentences
 from ._count_syllables import count_syllables
+from ._count_spache_difficult_words import count_spache_difficult_words
 
 __all__ = [
     "count_chars",
@@ -28,4 +29,5 @@ __all__ = [
     "count_polysyllable_words",
     "count_sentences",
     "count_syllables",
+    "count_spache_difficult_words",
 ]
